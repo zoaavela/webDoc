@@ -1,0 +1,354 @@
+/* ================================================================
+   GALERIE PAGE - DIAPORAMA
+   Au fil du court - Photo Slideshow
+   ================================================================ */
+
+/* ================================================================
+   PAGE BASE
+   ================================================================ */
+   .galerie-page {
+    background: var(--surface-cream);
+  }
+  
+  /* ================================================================
+     HERO HEADER
+     ================================================================ */
+  .galerie-hero {
+    padding: 140px var(--space-md) var(--space-lg);
+    text-align: center;
+    background: var(--court-green);
+    position: relative;
+  }
+  
+  .galerie-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--court-green-dark), var(--ball-yellow), var(--court-green-dark));
+  }
+  
+  .galerie-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 400;
+    color: var(--surface-white);
+    margin-bottom: var(--space-xs);
+  }
+  
+  .galerie-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+  }
+  
+  /* ================================================================
+     GALLERY MAIN
+     ================================================================ */
+  .galerie-main {
+    padding: var(--space-xl) var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* ================================================================
+     SLIDESHOW CONTAINER
+     ================================================================ */
+  .slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--surface-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+  
+  /* ================================================================
+     SLIDE
+     ================================================================ */
+  .slide {
+    display: none;
+    position: relative;
+    width: 100%;
+    animation: slideIn 0.6s var(--ease-out);
+  }
+  
+  .slide.active {
+    display: block;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    display: block;
+    max-height: 65vh;
+  }
+  
+  /* ================================================================
+     SLIDE CAPTION
+     ================================================================ */
+  .slide-caption {
+    padding: var(--space-lg) var(--space-md);
+    background: var(--surface-white);
+    text-align: center;
+  }
+  
+  .slide-caption h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--court-green);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .slide-caption p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-body);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  /* ================================================================
+     NAVIGATION BUTTONS
+     ================================================================ */
+  .prev,
+  .next {
+    position: absolute;
+    top: 300px;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--court-green);
+    border: none;
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--duration-fast) ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+  }
+  
+  .prev {
+    left: var(--space-md);
+  }
+  
+  .next {
+    right: var(--space-md);
+  }
+  
+  .prev:hover,
+  .next:hover {
+    background: var(--court-green);
+    color: var(--surface-white);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .prev:active,
+  .next:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+  
+  /* ================================================================
+     INDICATORS
+     ================================================================ */
+  .slide-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--text-subtle);
+    cursor: pointer;
+    transition: all var(--duration-fast) ease;
+    border: 2px solid transparent;
+  }
+  
+  .indicator:hover {
+    background: var(--court-green-light);
+    transform: scale(1.2);
+  }
+  
+  .indicator.active {
+    background: var(--court-green);
+    transform: scale(1.3);
+    border-color: var(--ball-yellow);
+  }
+  
+  /* ================================================================
+     COUNTER
+     ================================================================ */
+  .slide-counter {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(27, 77, 62, 0.9);
+    color: var(--surface-white);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+  }
+  
+  .slide-counter .current-slide {
+    color: var(--ball-yellow);
+    font-size: 1.1rem;
+  }
+  
+  /* ================================================================
+     RESPONSIVE
+     ================================================================ */
+  @media (max-width: 900px) {
+    .galerie-main {
+      padding: var(--space-lg) var(--space-sm);
+    }
+    
+    .slide img {
+      height: 500px;
+    }
+    
+    .slide-caption {
+      padding: var(--space-md);
+    }
+    
+    .slide-caption h3 {
+      font-size: 1.6rem;
+    }
+    
+    .slide-caption p {
+      font-size: 1rem;
+    }
+    
+    .prev,
+    .next {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      top: 250px;
+    }
+    
+    .prev {
+      left: var(--space-sm);
+    }
+    
+    .next {
+      right: var(--space-sm);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .galerie-hero {
+      padding: 120px var(--space-sm) var(--space-md);
+    }
+    
+    .galerie-title {
+      font-size: 2.5rem;
+    }
+    
+    .galerie-main {
+      padding: var(--space-md) var(--space-xs);
+      min-height: auto;
+    }
+    
+    .slideshow-container {
+      border-radius: var(--radius-md);
+    }
+    
+    .slide img {
+      height: 350px;
+    }
+    
+    .slide-caption {
+      padding: var(--space-md) var(--space-sm);
+    }
+    
+    .slide-caption h3 {
+      font-size: 1.4rem;
+      margin-bottom: var(--space-xs);
+    }
+    
+    .slide-caption p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    .prev,
+    .next {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      top: 175px;
+    }
+    
+    .prev {
+      left: 10px;
+    }
+    
+    .next {
+      right: 10px;
+    }
+    
+    .slide-indicators {
+      bottom: 10px;
+      padding: 8px 12px;
+      gap: 8px;
+    }
+    
+    .indicator {
+      width: 10px;
+      height: 10px;
+    }
+    
+    .slide-counter {
+      top: 10px;
+      right: 10px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+    }
+    
+    .slide-counter .current-slide {
+      font-size: 1rem;
+    }
+  }

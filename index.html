@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Au fil du court - Webdocumentaire Tennis</title>
+    <meta name="description" content="Plongez dans l'univers du tennis français à travers un webdocumentaire immersif.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <!-- INTRO ANIMATION -->
+    <div class="intro-curtain">
+        <div class="intro-curtain-left"></div>
+        <div class="intro-curtain-right"></div>
+        <div class="intro-logo">
+            <div class="intro-ball"></div>
+            <h1 class="intro-logo-text">Au fil du court</h1>
+            <div class="intro-logo-line"></div>
+            <p class="intro-logo-subtitle">Webdocumentaire</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/saewebc4.png" alt="Au fil du court" class="logo-img">
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Accueil</a></li>
+                <li class="nav-item"><a href="documentaire.html" class="nav-link">Documentaire</a></li>
+                <li class="nav-item">
+                    <a href="articles.html" class="nav-link">
+                        Articles
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </a>
+                    <div class="nav-dropdown">
+                        <a href="article/coach.html" class="nav-dropdown-link">La vie de Coach</a>
+                        <a href="article/elitisme.html" class="nav-dropdown-link">L'Élitisme</a>
+                        <a href="article/storys.html" class="nav-dropdown-link">Les Échos du Court</a>
+                        <a href="article/csmeaux.html" class="nav-dropdown-link">CS Meaux Tennis</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="galerie.html" class="nav-link">Galerie</a></li>
+            </ul>
+            <div class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-media">
+            <img src="img/court.JPG" alt="Court de tennis" loading="eager">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grain"></div>
+        
+        <div class="hero-content">
+            <span class="hero-tag">Webdocumentaire</span>
+            <h1 class="hero-title">Au fil du <em>court</em></h1>
+            <p class="hero-subtitle">Une immersion dans l'univers du tennis français, ses passions, ses défis et ses histoires.</p>
+            <div class="hero-buttons">
+                <a href="documentaire.html" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    Voir le documentaire
+                </a>
+                <a href="articles.html" class="btn btn-secondary">Explorer les articles</a>
+            </div>
+        </div>
+        
+        <div class="scroll-cue">
+            <div class="scroll-cue-line"></div>
+            <span class="scroll-cue-text">Défiler</span>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="intro-wrapper">
+            <div class="intro-content reveal">
+                <span class="intro-eyebrow">Notre Histoire</span>
+                <h2 class="intro-title">Bienvenue dans l'univers du tennis</h2>
+                <p class="intro-text">
+                        Plongez dans l'univers fascinant du tennis français à travers un webdocumentaire 
+                        immersif qui explore les multiples facettes de ce sport. De la vie de coach aux 
+                        enjeux de l'élitisme, en passant par les moments marquants du tennis français et 
+                        la présentation du CS Meaux Tennis, découvrez les coulisses d'une passion qui 
+                        anime des milliers de personnes.
+                    </p>
+                <a href="documentaire.html" class="btn btn-secondary">En savoir plus</a>
+            </div>
+            <div class="intro-visual reveal-right">
+                <div class="court-visual">
+                    <div class="mini-court">
+                        <div class="court-ball"></div>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="articles-section">
+        <div class="section-header">
+            <div class="section-header-content">
+                <span class="section-eyebrow">Nos Articles</span>
+                <h2 class="section-title">Explorez les chroniques</h2>
+            </div>
+            <a href="articles.html" class="section-link">
+                Voir tous les articles
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="articles-scroll">
+            <!-- Article 1 - Coach -->
+            <a href="article/coach.html" class="article-preview">
+                <div class="article-preview-image">
+                    <img src="img/conseil.JPG" alt="La vie de coach">
+                    <span class="article-preview-tag">Coach</span>
+                </div>
+                <div class="article-preview-content">
+                    <h3 class="article-preview-title">L'Engagement : Lucas Robert</h3>
+                    <p class="article-preview-excerpt">Plongez dans le quotidien exigeant d'un entraîneur. Entre psychologie, technique et passion.</p>
+                    <div class="article-preview-meta">
+                        <div class="article-preview-stats">
+                            <div class="article-stat">
+                                <span class="article-stat-value">15</span>
+                                <span class="article-stat-label">Ans exp.</span>
+                            </div>
+                            <div class="article-stat">
+                                <span class="article-stat-value">+100</span>
+                                <span class="article-stat-label">Joueurs</span>
+                            </div>
+                        </div>
+                        <div class="article-preview-arrow">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Article 2 - Élitisme -->
+            <a href="article/elitisme.html" class="article-preview">
+                <div class="article-preview-image">
+                    <img src="img/flat-lay-tennis-ball-with-racket-shadow.jpg" alt="L'élitisme">
+                    <span class="article-preview-tag">Société</span>
+                </div>
+                <div class="article-preview-content">
+                    <h3 class="article-preview-title">La Course au Sommet</h3>
+                    <p class="article-preview-excerpt">L'élitisme dans le tennis français : un système impitoyable vers le Top 100 mondial.</p>
+                    <div class="article-preview-meta">
+                        <div class="article-preview-stats">
+                            <div class="article-stat">
+                                <span class="article-stat-value">2%</span>
+                                <span class="article-stat-label">Top 100</span>
+                            </div>
+                            <div class="article-stat">
+                                <span class="article-stat-value">40k€</span>
+                                <span class="article-stat-label">Budget/an</span>
+                            </div>
+                        </div>
+                        <div class="article-preview-arrow">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Article 3 - Histoire -->
+            <a href="article/storys.html" class="article-preview">
+                <div class="article-preview-image">
+                    <img src="img/filet.JPG" alt="Faits marquants">
+                    <span class="article-preview-tag">Héritage</span>
+                </div>
+                <div class="article-preview-content">
+                    <h3 class="article-preview-title">L'Histoire Tricolore</h3>
+                    <p class="article-preview-excerpt">Des Quatre Mousquetaires à l'ère moderne. Les moments emblématiques du tennis français.</p>
+                    <div class="article-preview-meta">
+                        <div class="article-preview-stats">
+                            <div class="article-stat">
+                                <span class="article-stat-value">1928</span>
+                                <span class="article-stat-label">1ère Davis</span>
+                            </div>
+                            <div class="article-stat">
+                                <span class="article-stat-value">135</span>
+                                <span class="article-stat-label">Éditions RG</span>
+                            </div>
+                        </div>
+                        <div class="article-preview-arrow">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Article 4 - CS Meaux -->
+            <a href="article/csmeaux.html" class="article-preview">
+                <div class="article-preview-image">
+                    <img src="img/tennis1.png" alt="CS Meaux Tennis">
+                    <span class="article-preview-tag">Local</span>
+                </div>
+                <div class="article-preview-content">
+                    <h3 class="article-preview-title">CS Meaux Tennis</h3>
+                    <p class="article-preview-excerpt">Au cœur du jeu et de la communauté. Visite guidée d'un club qui fait bouger les lignes.</p>
+                    <div class="article-preview-meta">
+                        <div class="article-preview-stats">
+                            <div class="article-stat">
+                                <span class="article-stat-value">430</span>
+                                <span class="article-stat-label">Adhérents</span>
+                            </div>
+                            <div class="article-stat">
+                                <span class="article-stat-value">10</span>
+                                <span class="article-stat-label">Terrains</span>
+                            </div>
+                        </div>
+                        <div class="article-preview-arrow">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item reveal stagger-1">
+                <span class="stat-value">4</span>
+                <span class="stat-label">Articles</span>
+            </div>
+            <div class="stat-item reveal stagger-2">
+                <span class="stat-value">6</span>
+                <span class="stat-label">Chapitres</span>
+            </div>
+            <div class="stat-item reveal stagger-3">
+                <span class="stat-value">1</span>
+                <span class="stat-label">Documentaire</span>
+            </div>
+            <div class="stat-item reveal stagger-4">
+                <span class="stat-value">∞</span>
+                <span class="stat-label">Passion</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentary Section -->
+    <section class="doc-section">
+        <div class="doc-wrapper">
+            <div class="doc-visual reveal-left">
+                <img src="img/court_tb.JPG" alt="Le documentaire">
+                <a href="documentaire.html" class="doc-play" aria-label="Voir le documentaire">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="doc-content reveal-right">
+                <span class="section-eyebrow">Le Documentaire</span>
+                <h2 class="section-title">Une immersion totale</h2>
+                <p class="doc-description">
+                        Plongez au cœur de l'univers du tennis à travers notre documentaire immersif. 
+                        Rencontrez les acteurs de ce sport passionnant, des coaches dévoués aux joueurs 
+                        de haut niveau, et découvrez les coulisses d'un monde où la passion rencontre 
+                        l'excellence.
+                    </p>
+                <div class="doc-chapters">
+                    <span class="doc-chapter">Introduction</span>
+                    <span class="doc-chapter">La Vie de Coach</span>
+                    <span class="doc-chapter">L'Élitisme</span>
+                    <span class="doc-chapter">CS Meaux</span>
+                    <span class="doc-chapter">Faits Marquants</span>
+                    <span class="doc-chapter">Conclusion</span>
+                </div>
+                <a href="documentaire.html" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                    Regarder maintenant
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Au fil du court</h3>
+                    <p>Un projet immersif sur l'univers du tennis français. Une exploration des passions, des défis et des histoires qui font vibrer ce sport.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="documentaire.html">Documentaire</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Articles</h4>
+                    <ul>
+                        <li><a href="article/coach.html">La vie de coach</a></li>
+                        <li><a href="article/elitisme.html">L'élitisme</a></li>
+                        <li><a href="article/storys.html">Faits marquants</a></li>
+                        <li><a href="article/csmeaux.html">CS Meaux Tennis</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Au fil du court. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

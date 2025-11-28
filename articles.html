@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - Au fil du court</title>
+    <meta name="description" content="Découvrez nos articles sur l'univers du tennis français.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/articles-scroll.css">
+</head>
+<body class="articles-page">
+    <!-- PAGE INTRO ANIMATION -->
+    <div class="page-intro">
+        <div class="page-intro-content">
+            <div class="page-intro-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+            </div>
+            <h1 class="page-intro-title">Les Chroniques</h1>
+            <div class="page-intro-line"></div>
+            <p class="page-intro-subtitle">4 articles exclusifs</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Au fil du court</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+                <li class="nav-item"><a href="documentaire.html" class="nav-link">Documentaire</a></li>
+                <li class="nav-item">
+                    <a href="articles.html" class="nav-link active">
+                        Articles
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </a>
+                    <div class="nav-dropdown">
+                        <a href="article/coach.html" class="nav-dropdown-link">La vie de Coach</a>
+                        <a href="article/elitisme.html" class="nav-dropdown-link">L'Élitisme</a>
+                        <a href="article/storys.html" class="nav-dropdown-link">Les Échos du Court</a>
+                        <a href="article/csmeaux.html" class="nav-dropdown-link">CS Meaux Tennis</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="galerie.html" class="nav-link">Galerie</a></li>
+            </ul>
+            <div class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="articles-hero">
+        <span class="articles-hero-tag">Les Chroniques</span>
+        <h1 class="articles-hero-title">Au Fil du <em>Court</em></h1>
+        <p class="articles-hero-subtitle">Explorez l'univers du tennis français à travers nos articles : portraits, analyses et histoires passionnantes.</p>
+    </header>
+
+    <!-- Articles Grid -->
+    <main class="articles-main">
+        <div class="articles-grid">
+            
+            <!-- Article 1 - Coach (Featured) -->
+            <article id="coach" class="article-card">
+                <div class="card-inner">
+                    <div class="card-image">
+                        <img src="img/conseil.JPG" alt="Lucas Robert, entraîneur au CS Meaux">
+                        <span class="category-tag">Coach</span>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">L'Engagement : <em>Lucas Robert</em></h2>
+                        <p class="card-desc">
+                            Plongez dans le quotidien exigeant de Lucas Robert, entraîneur au CS Meaux. 
+                            Entre psychologie, technique et passion, découvrez comment se forge un champion 
+                            et les sacrifices nécessaires pour atteindre l'excellence sur le court.
+                        </p>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <span class="num">15</span>
+                                <span class="label">Ans d'expérience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="num">+100</span>
+                                <span class="label">Joueurs formés</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="num">35h</span>
+                                <span class="label">Par semaine</span>
+                            </div>
+                        </div>
+                        <a href="article/coach.html" class="btn-arrow">
+                            Lire l'article <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2 - Élitisme -->
+            <article id="elitisme" class="article-card">
+                <div class="card-inner">
+                    <div class="card-image">
+                        <img src="img/flat-lay-tennis-ball-with-racket-shadow.jpg" alt="L'élitisme dans le tennis">
+                        <span class="category-tag">Société</span>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">La Course au <em>Sommet</em></h2>
+                        <p class="card-desc">
+                            L'élitisme dans le tennis français : un système exigeant. Analyse des 
+                            sacrifices financiers et personnels pour atteindre le Top 100.
+                        </p>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <span class="num">2%</span>
+                                <span class="label">Top 100</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="num">40k€</span>
+                                <span class="label">Budget/an</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="num">14</span>
+                                <span class="label">Âge pivot</span>
+                            </div>
+                        </div>
+                        <a href="article/elitisme.html" class="btn-arrow">
+                            Lire l'article <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 3 - Histoire -->
+            <article id="faits-marquants" class="article-card">
+                <div class="card-inner">
+                    <div class="card-image">
+                        <img src="img/filet.JPG" alt="L'histoire du tennis français">
+                        <span class="category-tag">Héritage</span>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">L'Histoire <em>Tricolore</em></h2>
+                        <p class="card-desc">
+                            Des Mousquetaires à l'ère moderne. Les moments emblématiques 
+                            qui ont fait de la France une terre sainte du tennis.
+                        </p>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <span class="num">1928</span>
+                                <span class="label">1ère Davis</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="num">4</span>
+                                <span class="label">Mousquetaires</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="num">135</span>
+                                <span class="label">Éditions RG</span>
+                            </div>
+                        </div>
+                        <a href="article/storys.html" class="btn-arrow">
+                            Lire l'article <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 4 - CS Meaux -->
+            <article id="cs-meaux" class="article-card">
+                <div class="card-inner">
+                    <div class="card-image">
+                        <img src="img/tennis1.png" alt="CS Meaux Tennis">
+                        <span class="category-tag">Local</span>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">CS Meaux <em>Tennis</em></h2>
+                        <p class="card-desc">
+                            Au cœur du jeu et de la communauté. Infrastructure, formation et 
+                            convivialité : visite guidée d'un club qui fait bouger les lignes 
+                            et forme les champions de demain.
+                        </p>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <span class="num">430</span>
+                                <span class="label">Adhérents</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="num">10</span>
+                                <span class="label">Terrains</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="num">4</span>
+                                <span class="label">Couverts</span>
+                            </div>
+                        </div>
+                        <a href="article/csmeaux.html" class="btn-arrow">
+                            Lire l'article <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Au fil du court</h3>
+                    <p>Un projet immersif sur l'univers du tennis français.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="documentaire.html">Documentaire</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Articles</h4>
+                    <ul>
+                        <li><a href="#coach">La vie de coach</a></li>
+                        <li><a href="#elitisme">L'élitisme</a></li>
+                        <li><a href="#faits-marquants">Faits marquants</a></li>
+                        <li><a href="#cs-meaux">CS Meaux Tennis</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Au fil du court. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
