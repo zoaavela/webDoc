@@ -6,6 +6,7 @@
 /* ================================================================
    HERO SECTION
    ================================================================ */
+
 .hero {
   position: relative;
   height: 100vh;
@@ -797,4 +798,345 @@
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+.dashboard-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.dashboard-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--ball-yellow);
+}
+
+.dashboard-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--court-green);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.dashboard-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.datas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.data-card {
+  background: var(--surface-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(27, 77, 62, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.data-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--court-green), var(--ball-yellow));
+}
+
+.data-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 80px rgba(27, 77, 62, 0.2);
+}
+
+.data-value {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--court-green);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.data-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.chart-section {
+  background: var(--surface-white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(27, 77, 62, 0.1);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--court-green);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-title::before {
+  content: '';
+  width: 40px;
+  height: 3px;
+  background: var(--ball-yellow);
+}
+
+#worldMap {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  background: var(--surface-cream);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.country-marker {
+  position: absolute;
+  background: var(--court-green);
+  color: var(--surface-white);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(27, 77, 62, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.country-marker:hover {
+  transform: scale(1.1);
+  background: var(--ball-yellow);
+  color: var(--court-green);
+  animation: none;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(27, 77, 62, 0.3); }
+  50% { box-shadow: 0 4px 30px rgba(255, 215, 0, 0.5); }
+}
+
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.bar-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bar-label {
+  min-width: 120px;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+.bar-wrapper {
+  flex: 1;
+  height: 40px;
+  background: var(--surface-cream);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--court-green), var(--court-green-light));
+  border-radius: 20px;
+  transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1rem;
+  color: var(--surface-white);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.bar-fill.highlight {
+  background: linear-gradient(90deg, var(--ball-yellow), #f5d456);
+  color: var(--court-green);
+}
+
+.tennis-court {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  aspect-ratio: 2/3;
+  background: var(--court-green);
+  border-radius: var(--radius-md);
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.court-line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.court-line.horizontal {
+  width: 100%;
+  height: 3px;
+  left: 0;
+}
+
+.court-line.vertical {
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.court-data-point {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--ball-yellow);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--ball-glow);
+  animation: ballAppear 0.5s ease-out;
+}
+
+@keyframes ballAppear {
+  from {
+      transform: scale(0);
+      opacity: 0;
+  }
+  to {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+.france-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.detail-card {
+  background: var(--surface-cream);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--court-green);
+}
+
+.detail-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--court-green);
+  margin-bottom: 1rem;
+}
+
+.detail-data {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(27, 77, 62, 0.1);
+}
+
+.detail-data:last-child {
+  border-bottom: none;
+}
+
+.detail-data-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.detail-data-value {
+  font-weight: 700;
+  color: var(--court-green);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .datas-grid {
+      grid-template-columns: 1fr 1fr;
+  }
+
+  .france-detail {
+      grid-template-columns: 1fr;
+  }
+
+  #worldMap {
+      height: 400px;
+  }
+
+  .dashboard-header {
+      margin-bottom: 2rem;
+  }
+
+  .chart-section {
+      padding: 1.5rem;
+  }
+
+  .bar-label {
+      min-width: 80px;
+      font-size: 0.8rem;
+  }
+}
+
+.loading {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.interactive-hint {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  font-style: italic;
 }
