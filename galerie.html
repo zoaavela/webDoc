@@ -13,7 +13,7 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/galerie1.css">
+    <link rel="stylesheet" href="css/galerie.css">
 </head>
 <body class="galerie-page">
     <!-- Navigation -->
@@ -171,9 +171,6 @@
                 </div>
             </div>
 
-
-
-
             <!-- Navigation -->
             <button class="prev" aria-label="Photo précédente">❮</button>
             <button class="next" aria-label="Photo suivante">❯</button>
@@ -198,10 +195,24 @@
 
             <!-- Compteur -->
             <div class="slide-counter">
-                <span class="current-slide">1</span> / <span class="total-slides">10</span>
+                <span class="current-slide">1</span> / <span class="total-slides">14</span>
             </div>
         </div>
     </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Fermer">×</button>
+        <button class="lightbox-prev" aria-label="Image précédente">❮</button>
+        <button class="lightbox-next" aria-label="Image suivante">❯</button>
+        <div class="lightbox-content">
+            <img class="lightbox-image" src="" alt="">
+            <div class="lightbox-caption">
+                <h3 class="lightbox-title"></h3>
+                <p class="lightbox-description"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -243,72 +254,7 @@
         <div class="lightbox-caption" id="lb-caption"></div>
     </div>
 
-    <script>
-        (function(){
-            // Initialisation des variables et sélection des éléments DOM
-            let currentSlide = 0; // Index du slide actuellement affiché (commence à 0)
-            const slides = document.querySelectorAll('.slide');
-            const indicators = document.querySelectorAll('.indicator');
-            const prevBtn = document.querySelector('.prev');
-            const nextBtn = document.querySelector('.next');
-            const currentSlideSpan = document.querySelector('.current-slide');
-            const totalSlidesSpan = document.querySelector('.total-slides');
-            const totalSlides = slides.length;
-        
-            // S'assurer que le nombre total de slides est correct dans le compteur
-            if (totalSlidesSpan) {
-                totalSlidesSpan.textContent = totalSlides;
-            }
-        
-            function showSlide(n) {
-                let newIndex = n;
-                
-                // ==========================================================
-                // LOGIQUE DE BOUCLE (WRAP AROUND)
-                // Si l'index dépasse le total, revient à 0 (premier slide).
-                if (newIndex >= totalSlides) {
-                    newIndex = 0; 
-                }
-                // Si l'index est inférieur à 0, va au dernier slide.
-                if (newIndex < 0) {
-                    newIndex = totalSlides - 1; 
-                }
-                // ==========================================================
-        
-                currentSlide = newIndex; // Met à jour l'index global pour le prochain clic
-        
-                // Masquer toutes les slides et indicateurs
-                slides.forEach(slide => slide.classList.remove('active'));
-                indicators.forEach(ind => ind.classList.remove('active'));
-        
-                // Afficher la slide et l'indicateur actuels
-                slides[currentSlide].classList.add('active');
-                indicators[currentSlide].classList.add('active');
-                currentSlideSpan.textContent = currentSlide + 1; // Le compteur est basé sur 1, pas 0
-            }
-        
-            // Initialisation : Afficher la première slide au chargement
-            showSlide(currentSlide);
-        
-            // Navigation : L'événement appelle showSlide avec l'index suivant/précédent
-            prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
-            nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
-        
-            // Indicateurs : Naviguer directement à un slide
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => showSlide(index));
-            });
-        
-            // Navigation clavier
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
-                if (e.key === 'ArrowRight') showSlide(currentSlide + 1);
-            });
-        
-            // Défilement automatique (optionnel - décommenter si souhaité)
-            // setInterval(() => showSlide(currentSlide + 1), 5000);
-        })();
-        </script>
+    <script src="js/galerie.js"></script>
 </body>
 </html>
 
