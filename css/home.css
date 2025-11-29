@@ -330,6 +330,13 @@
   75% { top: 80%; left: 30%; }
 }
 
+
+.dataviz-section {
+  padding: var(--space-xl) var(--space-xl);
+  background: var(--surface-cream);
+  position: relative;
+}
+
 /* ================================================================
    ARTICLES SECTION
    ================================================================ */

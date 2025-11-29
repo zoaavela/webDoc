@@ -14,6 +14,347 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/home.css">
+    <style>        .dashboard-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .dashboard-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+        padding-bottom: 2rem;
+    }
+
+    .dashboard-header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: var(--ball-yellow);
+    }
+
+    .dashboard-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        color: var(--court-green);
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .dashboard-subtitle {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        font-weight: 300;
+    }
+
+    .datas-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .data-card {
+        background: var(--surface-white);
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid rgba(27, 77, 62, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .data-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--court-green), var(--ball-yellow));
+    }
+
+    .data-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 80px rgba(27, 77, 62, 0.2);
+    }
+
+    .data-value {
+        font-family: var(--font-display);
+        font-size: 3rem;
+        color: var(--court-green);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        line-height: 1;
+    }
+
+    .data-label {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+    }
+
+    .chart-section {
+        background: var(--surface-white);
+        border-radius: var(--radius-lg);
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid rgba(27, 77, 62, 0.1);
+    }
+
+    .section-title {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        color: var(--court-green);
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .section-title::before {
+        content: '';
+        width: 40px;
+        height: 3px;
+        background: var(--ball-yellow);
+    }
+
+    #worldMap {
+        width: 100%;
+        height: 500px;
+        position: relative;
+        background: var(--surface-cream);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+    }
+
+    .map-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .country-marker {
+        position: absolute;
+        background: var(--court-green);
+        color: var(--surface-white);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        box-shadow: 0 4px 20px rgba(27, 77, 62, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+    }
+
+    .country-marker:hover {
+        transform: scale(1.1);
+        background: var(--ball-yellow);
+        color: var(--court-green);
+        animation: none;
+    }
+
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 4px 20px rgba(27, 77, 62, 0.3); }
+        50% { box-shadow: 0 4px 30px rgba(255, 215, 0, 0.5); }
+    }
+
+    .bar-chart {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .bar-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .bar-label {
+        min-width: 120px;
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 0.9rem;
+    }
+
+    .bar-wrapper {
+        flex: 1;
+        height: 40px;
+        background: var(--surface-cream);
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--court-green), var(--court-green-light));
+        border-radius: 20px;
+        transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 1rem;
+        color: var(--surface-white);
+        font-weight: 700;
+        font-size: 0.85rem;
+    }
+
+    .bar-fill.highlight {
+        background: linear-gradient(90deg, var(--ball-yellow), #f5d456);
+        color: var(--court-green);
+    }
+
+    .tennis-court {
+        width: 100%;
+        max-width: 600px;
+        margin: 2rem auto;
+        aspect-ratio: 2/3;
+        background: var(--court-green);
+        border-radius: var(--radius-md);
+        position: relative;
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+    }
+
+    .court-line {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.6);
+    }
+
+    .court-line.horizontal {
+        width: 100%;
+        height: 3px;
+        left: 0;
+    }
+
+    .court-line.vertical {
+        width: 2px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .court-data-point {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: var(--ball-yellow);
+        border-radius: 50%;
+        box-shadow: 0 0 20px var(--ball-glow);
+        animation: ballAppear 0.5s ease-out;
+    }
+
+    @keyframes ballAppear {
+        from {
+            transform: scale(0);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .france-detail {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .detail-card {
+        background: var(--surface-cream);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        border-left: 4px solid var(--court-green);
+    }
+
+    .detail-title {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: var(--court-green);
+        margin-bottom: 1rem;
+    }
+
+    .detail-data {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(27, 77, 62, 0.1);
+    }
+
+    .detail-data:last-child {
+        border-bottom: none;
+    }
+
+    .detail-data-label {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+
+    .detail-data-value {
+        font-weight: 700;
+        color: var(--court-green);
+        font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+        .datas-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .france-detail {
+            grid-template-columns: 1fr;
+        }
+
+        #worldMap {
+            height: 400px;
+        }
+
+        .dashboard-header {
+            margin-bottom: 2rem;
+        }
+
+        .chart-section {
+            padding: 1.5rem;
+        }
+
+        .bar-label {
+            min-width: 80px;
+            font-size: 0.8rem;
+        }
+    }
+
+    .loading {
+        opacity: 0;
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+
+    .interactive-hint {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-top: 1rem;
+        font-style: italic;
+    }
+</style>
 </head>
 <body>
     <!-- INTRO ANIMATION -->
@@ -45,7 +386,7 @@
                         </svg>
                     </a>
                     <div class="nav-dropdown">
-                        <a href="article/coach.html" class="nav-dropdown-link">La vie de Coach</a>
+                        <a href="article/coach.html" class="nav-dropdown-link">La Vie de Coach</a>
                         <a href="article/elitisme.html" class="nav-dropdown-link">L'Élitisme</a>
                         <a href="article/storys.html" class="nav-dropdown-link">Les Échos du Court</a>
                         <a href="article/csmeaux.html" class="nav-dropdown-link">CS Meaux Tennis</a>
@@ -64,7 +405,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-media">
-            <img src="img/court.JPG" alt="Court de tennis" loading="eager">
+            <img src="img/filet.JPG" alt="Filet de tennis" loading="eager">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-grain"></div>
@@ -115,6 +456,7 @@
         </div>
     </section>
 
+ 
     <!-- Articles Section -->
     <section class="articles-section">
         <div class="section-header">
@@ -138,13 +480,13 @@
                     <span class="article-preview-tag">Coach</span>
                 </div>
                 <div class="article-preview-content">
-                    <h3 class="article-preview-title">L'Engagement : Lucas Robert</h3>
-                    <p class="article-preview-excerpt">Plongez dans le quotidien exigeant d'un entraîneur. Entre psychologie, technique et passion.</p>
+                    <h3 class="article-preview-title">La Vie de Coach</h3>
+                    <p class="article-preview-excerpt">Découvrez le portrait d'un métier qui façonne des vies.</p>
                     <div class="article-preview-meta">
                         <div class="article-preview-stats">
                             <div class="article-stat">
-                                <span class="article-stat-value">15</span>
-                                <span class="article-stat-label">Ans exp.</span>
+                                <span class="article-stat-value">10k</span>
+                                <span class="article-stat-label">coachs en France</span>
                             </div>
                             <div class="article-stat">
                                 <span class="article-stat-value">+100</span>
@@ -167,8 +509,8 @@
                     <span class="article-preview-tag">Société</span>
                 </div>
                 <div class="article-preview-content">
-                    <h3 class="article-preview-title">La Course au Sommet</h3>
-                    <p class="article-preview-excerpt">L'élitisme dans le tennis français : un système impitoyable vers le Top 100 mondial.</p>
+                    <h3 class="article-preview-title">L'Élitisme dans le Tennis Français</h3>
+                    <p class="article-preview-excerpt">Une exploration sociologique entre tradition bourgeoise et quête d'accessibilité sociale.</p>
                     <div class="article-preview-meta">
                         <div class="article-preview-stats">
                             <div class="article-stat">
@@ -196,8 +538,8 @@
                     <span class="article-preview-tag">Héritage</span>
                 </div>
                 <div class="article-preview-content">
-                    <h3 class="article-preview-title">L'Histoire Tricolore</h3>
-                    <p class="article-preview-excerpt">Des Quatre Mousquetaires à l'ère moderne. Les moments emblématiques du tennis français.</p>
+                    <h3 class="article-preview-title">Les Échos du Court</h3>
+                    <p class="article-preview-excerpt">Une immersion dans l'univers des idoles du club de Meaux.</p>
                     <div class="article-preview-meta">
                         <div class="article-preview-stats">
                             <div class="article-stat">
@@ -226,7 +568,7 @@
                 </div>
                 <div class="article-preview-content">
                     <h3 class="article-preview-title">CS Meaux Tennis</h3>
-                    <p class="article-preview-excerpt">Au cœur du jeu et de la communauté. Visite guidée d'un club qui fait bouger les lignes.</p>
+                    <p class="article-preview-excerpt">Un club en pleine ascension au cœur de la cité meldoise.</p>
                     <div class="article-preview-meta">
                         <div class="article-preview-stats">
                             <div class="article-stat">
@@ -287,18 +629,10 @@
                 <h2 class="section-title">Une immersion totale</h2>
                 <p class="doc-description">
                         Plongez au cœur de l'univers du tennis à travers notre documentaire immersif. 
-                        Rencontrez les acteurs de ce sport passionnant, des coaches dévoués aux joueurs 
-                        de haut niveau, et découvrez les coulisses d'un monde où la passion rencontre 
+                        Rencontrez les acteurs de ce sport passionnant, des coaches dévoués aux amateurs de la discipline,
+                         et découvrez les coulisses d'un monde où la passion rencontre 
                         l'excellence.
                     </p>
-                <div class="doc-chapters">
-                    <span class="doc-chapter">Introduction</span>
-                    <span class="doc-chapter">La Vie de Coach</span>
-                    <span class="doc-chapter">L'Élitisme</span>
-                    <span class="doc-chapter">CS Meaux</span>
-                    <span class="doc-chapter">Faits Marquants</span>
-                    <span class="doc-chapter">Conclusion</span>
-                </div>
                 <a href="documentaire.html" class="btn btn-primary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M8 5v14l11-7z"/>
@@ -308,6 +642,188 @@
             </div>
         </div>
     </section>
+    
+   <!-- DATA VISUALIZATION SECTION -->
+    <section class="dataviz-section">
+        <div class="section-header">
+            <div class="section-header-content">
+                <span class="section-eyebrow">Data Visualization</span>
+                <h2 class="section-title">Les données du tennis français</h2>
+            </div>
+        </div>
+    <!-- Stats Cards -->
+    <div class="datas-grid loading" style="animation-delay: 0.2s;">
+        <div class="data-card">
+            <div class="data-value" data-target="106">0</div>
+            <div class="data-label">Millions de joueurs</div>
+        </div>
+        <div class="data-card">
+            <div class="data-value" data-target="199">0</div>
+            <div class="data-label">Pays participants</div>
+        </div>
+        <div class="data-card">
+            <div class="data-value">7</div>
+            <div class="data-label">Courts à Meaux</div>
+        </div>
+        <div class="data-card">
+            <div class="data-value">4</div>
+            <div class="data-label">Courts couverts</div>
+        </div>
+    </div>
+
+    <!-- World Map Section -->
+    <div class="chart-section loading" style="animation-delay: 0.4s;">
+        <h2 class="section-title">Répartition mondiale des joueurs</h2>
+        <div id="worldMap">
+            <div class="map-container">
+                <svg viewBox="0 0 1200 600" style="width: 100%; height: 100%;">
+                    <!-- Simplified world map -->
+                    <defs>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    
+                    <!-- Continents (simplified shapes) -->
+                    <path d="M 150 150 Q 200 120 300 140 L 450 130 L 500 200 L 450 250 L 300 240 L 200 220 Z" fill="#2d6a4f" opacity="0.3"/>
+                    <path d="M 500 180 L 650 160 L 800 170 L 900 200 L 850 280 L 700 300 L 600 260 Z" fill="#2d6a4f" opacity="0.3"/>
+                    <path d="M 900 250 L 1000 230 L 1100 260 L 1050 320 L 950 310 Z" fill="#2d6a4f" opacity="0.3"/>
+                    <path d="M 200 300 L 300 290 L 350 350 L 300 420 L 180 400 Z" fill="#2d6a4f" opacity="0.3"/>
+                    <path d="M 850 350 L 950 340 L 1000 380 L 980 450 L 900 440 Z" fill="#2d6a4f" opacity="0.3"/>
+                </svg>
+                
+                <!-- Data points -->
+                <div class="country-marker" style="left: 15%; top: 25%;" data-country="Amérique du Nord" data-value="28.8M">
+                    28.8M
+                </div>
+                <div class="country-marker" style="left: 50%; top: 30%;" data-country="Europe" data-value="29.6M">
+                    29.6M
+                </div>
+                <div class="country-marker" style="left: 70%; top: 35%;" data-country="Asie" data-value="35.3M">
+                    35.3M
+                </div>
+                <div class="country-marker" style="left: 25%; top: 55%;" data-country="Amérique du Sud" data-value="8.8M">
+                    8.8M
+                </div>
+                <div class="country-marker" style="left: 75%; top: 65%;" data-country="Océanie" data-value="0.89M">
+                    0.89M
+                </div>
+            </div>
+        </div>
+        <p class="interactive-hint">Survolez les marqueurs pour voir les détails</p>
+    </div>
+
+    <!-- Sports Ranking Chart -->
+    <div class="chart-section loading" style="animation-delay: 0.6s;">
+        <h2 class="section-title">Sports avec le plus de licenciés en France</h2>
+        <div class="bar-chart">
+            <div class="bar-item">
+                <div class="bar-label">Football</div>
+                <div class="bar-wrapper">
+                    <div class="bar-fill highlight" style="width: 0%" data-width="100%">
+                        2 384 192 de licenciés
+                    </div>
+                </div>
+            </div>
+            <div class="bar-item">
+                <div class="bar-label">Tennis</div>
+                <div class="bar-wrapper">
+                    <div class="bar-fill" style="width: 0%" data-width="85%">
+                        1 169 722 de licenciés
+                    </div>
+                </div>
+            </div>
+            <div class="bar-item">
+                <div class="bar-label">Basketball</div>
+                <div class="bar-wrapper">
+                    <div class="bar-fill" style="width: 0%" data-width="70%">
+                        765 909 de licenciés
+                    </div>
+                </div>
+            </div>
+            <div class="bar-item">
+                <div class="bar-label">Équitation</div>
+                <div class="bar-wrapper">
+                    <div class="bar-fill" style="width: 0%" data-width="58%">
+                        675 186 de licenciés
+                    </div>
+                </div>
+            </div>
+            <div class="bar-item">
+                <div class="bar-label">Judo</div>
+                <div class="bar-wrapper">
+                    <div class="bar-fill" style="width: 0%" data-width="45%">
+                        532 190 de licenciés
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- France Tennis Details -->
+    <div class="chart-section loading" style="animation-delay: 0.8s;">
+        <h2 class="section-title">Focus sur le Tennis en France</h2>
+        <div class="france-detail">
+            <div class="detail-card">
+                <h3 class="detail-title">Île-de-France</h3>
+                <div class="detail-data">
+                    <span class="detail-data-label">Licenciés totaux</span>
+                    <span class="detail-data-value">1,2M</span>
+                </div>
+                <div class="detail-data">
+                    <span class="detail-data-label">Part nationale</span>
+                    <span class="detail-data-value">12%</span>
+                </div>
+                <div class="detail-data">
+                    <span class="detail-data-label">Clubs actifs</span>
+                    <span class="detail-data-value">9</span>
+                </div>
+            </div>
+            
+            <div class="detail-card">
+                <h3 class="detail-title">Seine-et-Marne (77)</h3>
+                <div class="detail-data">
+                    <span class="detail-data-label">Licenciés totaux</span>
+                    <span class="detail-data-value">25 400</span>
+                </div>
+                <div class="detail-data">
+                    <span class="detail-data-label">Part IDF</span>
+                    <span class="detail-data-value">~1.9%</span>
+                </div>
+                <div class="detail-data">
+                    <span class="detail-data-label">Clubs avec courts couverts</span>
+                    <span class="detail-data-value">6% du 77</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meaux Specific datas -->
+        <div style="margin-top: 2rem;">
+            <div class="detail-card" style="border-left-color: #ffd700;">
+                <h3 class="detail-title">CS Meaux Tennis</h3>
+                <div class="detail-data">
+                    <span class="detail-data-label">Licenciés</span>
+                    <span class="detail-data-value">480</span>
+                </div>
+                <div class="detail-data">
+                    <span class="detail-data-label">Représente du département</span>
+                    <span class="detail-data-value">~1.9%</span>
+                </div>
+                <div class="detail-data">
+                    <span class="detail-data-label">Total de courts</span>
+                    <span class="detail-data-value">7 (dont 4 couverts)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -315,7 +831,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Au fil du court</h3>
-                    <p>Un projet immersif sur l'univers du tennis français. Une exploration des passions, des défis et des histoires qui font vibrer ce sport.</p>
+                    <p>Un projet immersif sur l'univers du tennis français.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Navigation</h4>
@@ -323,6 +839,7 @@
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="documentaire.html">Documentaire</a></li>
                         <li><a href="articles.html">Articles</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -330,7 +847,7 @@
                     <ul>
                         <li><a href="article/coach.html">La vie de coach</a></li>
                         <li><a href="article/elitisme.html">L'élitisme</a></li>
-                        <li><a href="article/storys.html">Faits marquants</a></li>
+                        <li><a href="article/storys.html">Les Échos du Court</a></li>
                         <li><a href="article/csmeaux.html">CS Meaux Tennis</a></li>
                     </ul>
                 </div>
@@ -342,5 +859,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/dataviz.js"></script>
 </body>
 </html>
